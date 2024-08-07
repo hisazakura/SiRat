@@ -1,0 +1,27 @@
+﻿<Window x:Class="SiRat.NewReportPrompt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SiRat"
+        xmlns:vm="clr-namespace:SiRat.ViewModel"
+        xmlns:model="clr-namespace:SiRat.Model"
+        xmlns:datamodel="clr-namespace:SiRat.Model.Data"
+        mc:Ignorable="d"
+        Title="Buat Rapor Baru" Height="500" Width="300">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+    <DockPanel Margin="16">
+        <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="BuatRaporBaruButton" Padding="16,4,16,4" Content="Buat Rapor Baru" Click="BuatRaporBaruButton_Click"/>
+        </StackPanel>
+        <ListBox x:Name="TemplateList" DockPanel.Dock="Top" Margin="0,0,0,16" BorderThickness="1" ItemsSource="{Binding TemplateList}">
+            <ListBox.Resources>
+                <DataTemplate DataType="{x:Type datamodel:SpreadsheetData}">
+                    <TextBlock Text="{Binding FileNameWithoutExtension}"/>
+                </DataTemplate>
+            </ListBox.Resources>
+        </ListBox>
+    </DockPanel>
+</Window>

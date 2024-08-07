@@ -1,0 +1,22 @@
+﻿<Window x:Class="SiRat.NewSantriPrompt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SiRat"
+        xmlns:vm="clr-namespace:SiRat.ViewModel"
+        xmlns:model="clr-namespace:SiRat.Model"
+        xmlns:datamodel="clr-namespace:SiRat.Model.Data"
+        mc:Ignorable="d"
+        Title="Nama Santri" Height="150" Width="500">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+    <DockPanel Margin="16">
+        <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="TambahSantriButton" Padding="16,4,16,4" Content="Tambah Santri Baru" Click="TambahSantriButton_Click"/>
+        </StackPanel>
+        <TextBlock DockPanel.Dock="Top" Margin="0,0,0,4" Text="Nama Santri"/>
+        <TextBox DockPanel.Dock="Top" x:Name="SantriNameTextBox" VerticalAlignment="Top"/>
+    </DockPanel>
+</Window>
